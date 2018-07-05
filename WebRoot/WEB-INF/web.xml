@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>com.web.filter.EncodingFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>autoLoginFilter</filter-name>
+		<filter-class>com.web.filter.AutoLoginFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>loginFilter</filter-name>
+		<filter-class>com.web.filter.LoginFilter</filter-class>
+	</filter>
+	<!-- <filter>
+		<filter-name>userFilter</filter-name>
+		<filter-class>com.web.filter.UserFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>orderFilter</filter-name>
+		<filter-class>com.web.filter.OrderFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>backGroundFilter</filter-name>
+		<filter-class>com.web.filter.BackGroundFilter</filter-class>
+	</filter> -->
+	<filter>
+		<filter-name>administrator</filter-name>
+		<filter-class>com.web.filter.Administrator</filter-class>
+	</filter>
+	
+	
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>autoLoginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>loginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- <filter-mapping>
+		<filter-name>userFilter</filter-name>
+		<url-pattern>/user</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>orderFilter</filter-name>
+		<url-pattern>/order</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>backGroundFilter</filter-name>
+		<url-pattern>/background</url-pattern>
+	</filter-mapping> -->
+	<filter-mapping>
+		<filter-name>administrator</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+		<listener-class>com.web.listener.BookStoreSevletContextListener</listener-class>		
+	</listener>
+	<listener>
+		<listener-class>com.web.listener.BookStoreHttpSessionListener</listener-class>
+	</listener>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>createValidateCodeServlet</servlet-name>
+    <servlet-class>com.web.servlet.CreateValidateCodeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>baseServlet</servlet-name>
+    <servlet-class>com.web.servlet.BaseServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>userServlet</servlet-name>
+    <servlet-class>com.web.servlet.UserServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>checkValidateCodeServlet</servlet-name>
+    <servlet-class>com.web.servlet.CheckValidateCodeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>bookServlet</servlet-name>
+    <servlet-class>com.web.servlet.BookServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>orderServlet</servlet-name>
+    <servlet-class>com.web.servlet.OrderServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>backGroundServlet</servlet-name>
+    <servlet-class>com.web.servlet.BackGroundServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>createValidateCodeServlet</servlet-name>
+    <url-pattern>/imageCode</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>baseServlet</servlet-name>
+    <url-pattern>/servlet/baseservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>userServlet</servlet-name>
+    <url-pattern>/user</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>checkValidateCodeServlet</servlet-name>
+    <url-pattern>/checkvalidatecode</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>bookServlet</servlet-name>
+    <url-pattern>/book</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>orderServlet</servlet-name>
+    <url-pattern>/order</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>backGroundServlet</servlet-name>
+    <url-pattern>/background/*</url-pattern>
+  </servlet-mapping>
+	
+	<session-config>
+		<session-timeout>1440</session-timeout>
+	</session-config>
+  <display-name></display-name>	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
